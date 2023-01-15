@@ -1,7 +1,7 @@
 import { NativeScriptConfig } from '@nativescript/core';
 
 export default {
-  id: 'org.nativescript.versasaudeacs',
+  id: 'com.versatec.acs',
   appPath: 'src',
   appResourcesPath: 'App_Resources',
   android: {

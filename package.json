@@ -14,7 +14,9 @@
     "@angular/router": "~15.0.0",
     "@nativescript/angular": "~15.0.0",
     "@nativescript/core": "~8.4.0",
+    "@nativescript/picker": "^4.0.2",
     "@nativescript/theme": "~3.0.2",
+    "nativescript-ui-dataform": "^14.2.1",
     "nativescript-ui-sidedrawer": "~14.2.1",
     "rxjs": "~7.5.0",
     "zone.js": "~0.11.5"
@@ -22,6 +24,8 @@
   "devDependencies": {
     "@angular-devkit/build-angular": "~15.0.0",
     "@angular/compiler-cli": "~15.0.0",
+    "@nativescript/android": "8.4.0",
+    "@nativescript/preview-cli": "1.0.2",
     "@nativescript/types": "~8.4.0",
     "@nativescript/webpack": "~5.0.12",
     "@ngtools/webpack": "~15.0.0",

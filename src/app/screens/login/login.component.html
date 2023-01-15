@@ -1,0 +1,25 @@
+<FlexboxLayout>
+    <Image src="res://logo_versasaude"></Image>
+
+    <StackLayout [formGroup]="formLogin">
+        <PickerField #instancias hint="Selecione um município" [items]="items" [pickerTitle]="'Municípios'" textField="municipio"
+            valueField="value" formControlName="instancia">
+            <ng-template let-item="item">
+                <GridLayout columns="auto, *" rows="auto, *">
+                    <Label [text]="item.municipio" col="0" class="item-template-label red-label"
+                        marginBottom="20"></Label>
+                    <!-- <Image src="res://logo_versatec" col="1" row="0" rowSpan="2" class="item-template-picture"></Image> -->
+                </GridLayout>
+            </ng-template>
+        </PickerField>
+
+        <TextField keyboardType="integer" hint="Digite seu usuário" formControlName="usuario">
+        </TextField>
+        <TextField secure="true" hint="Digite sua senha" formControlName="senha">
+        </TextField>
+
+        <Button text="Entrar" (tap)="handleSignIn()"></Button>
+
+        <Image src="res://logo_versatec" width="100" marginTop="24"></Image>
+    </StackLayout>
+</FlexboxLayout>

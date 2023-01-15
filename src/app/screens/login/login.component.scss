@@ -1,0 +1,40 @@
+FlexboxLayout {
+    flex-direction: column;
+    justify-content: space-between;
+
+    Image {
+        width: 320dp;
+        margin-top: 120dp;
+    }
+
+    StackLayout {
+        padding: 32dp 16dp;
+        margin: 0 16dp;
+        border-top-left-radius: 20dp;
+        border-top-right-radius: 20dp;
+        background-color: #F1F1FA;
+
+        PickerField,
+        TextField {
+            height: 48dp;
+            margin-bottom: 8dp;
+            border-color: #0B75D7;
+            border-width: 1dp;
+            border-radius: 8dp;
+            font-size: 18sp;
+            background-color: #FCFCFF;
+            color: #0B75D7;
+            text-align: center;
+            placeholder-color: #c6c6c6;
+        }
+
+        Button {
+            height: 48dp;
+            border-width: 1dp;
+            border-radius: 8dp;
+            background-color: #0B75D7;
+            font-size: 18sp;
+            color: #FCFCFF;
+        }
+    }
+}

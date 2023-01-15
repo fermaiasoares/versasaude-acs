@@ -26,9 +26,14 @@ FlexboxLayout {
             color: #0B75D7;
             text-align: center;
             placeholder-color: #c6c6c6;
+
+            &.has-error {
+                border-color: #d35;
+            }
         }
 
         Button {
+            margin-top: 24dp;
             height: 48dp;
             border-width: 1dp;
             border-radius: 8dp;

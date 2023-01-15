@@ -1,6 +1,5 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { Dialogs, AlertOptions, EventData, Page } from '@nativescript/core';
-import { PickerFieldComponent } from "@nativescript/picker/angular";
+import { Component, OnInit } from '@angular/core';
+import { Dialogs, AlertOptions, Page } from '@nativescript/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
@@ -9,8 +8,6 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
     styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-    @ViewChild('instancias', { static: false }) instancias: PickerFieldComponent;
-
     items: Array<{ municipio: string; value: string }> = [
         { municipio: 'Teste', value: '1' },
         { municipio: 'Teste 2', value: '2' }
@@ -18,10 +15,10 @@ export class LoginComponent implements OnInit {
 
     public formLogin: FormGroup;
 
-    constructor(page: Page) {
-        page.actionBarHidden = true;
-        page.backgroundImage = 'res://background_image';
-        page.backgroundRepeat = 'no-repeat';
+    constructor(private page: Page) {
+        this.page.actionBarHidden = true;
+        this.page.backgroundImage = 'res://background_image';
+        this.page.backgroundRepeat = 'no-repeat';
 
         this.formLogin = new FormGroup({
             instancia: new FormControl(null, [Validators.required]),
@@ -31,8 +28,12 @@ export class LoginComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        // @ts-ignore
-        // console.log(this.instancias.nativeElement.selectedValue);
+    }
+
+    invalidField(field: string) {
+        return {
+            'has-error': this.formLogin.get(field).touched && !this.formLogin.get(field).valid
+        }
     }
 
     handleSignIn() {

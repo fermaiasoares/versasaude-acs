@@ -2,8 +2,8 @@
     <Image src="res://logo_versasaude"></Image>
 
     <StackLayout [formGroup]="formLogin">
-        <PickerField #instancias hint="Selecione um município" [items]="items" [pickerTitle]="'Municípios'" textField="municipio"
-            valueField="value" formControlName="instancia">
+        <PickerField #instancias hint="Selecione um município" [items]="items" [pickerTitle]="'Municípios'"
+            textField="municipio" valueField="value" formControlName="instancia" [ngClass]="invalidField('instancia')">
             <ng-template let-item="item">
                 <GridLayout columns="auto, *" rows="auto, *">
                     <Label [text]="item.municipio" col="0" class="item-template-label red-label"
@@ -13,12 +13,14 @@
             </ng-template>
         </PickerField>
 
-        <TextField keyboardType="integer" hint="Digite seu usuário" formControlName="usuario">
+        <TextField keyboardType="integer" hint="Digite seu usuário" formControlName="usuario"
+            [ngClass]="invalidField('usuario')">
         </TextField>
-        <TextField secure="true" hint="Digite sua senha" formControlName="senha">
+        <TextField secure="true" hint="Digite sua senha" formControlName="senha"
+            [ngClass]="invalidField('senha')">
         </TextField>
 
-        <Button text="Entrar" (tap)="handleSignIn()"></Button>
+        <Button text="Entrar" (tap)="handleSignIn()" [isEnabled]="formLogin.valid"></Button>
 
         <Image src="res://logo_versatec" width="100" marginTop="24"></Image>
     </StackLayout>

@@ -15,6 +15,7 @@
     "@nativescript/angular": "~15.0.0",
     "@nativescript/core": "~8.4.0",
     "@nativescript/firebase-core": "^2.5.2",
+    "@nativescript/firebase-firestore": "^2.5.2",
     "@nativescript/picker": "^4.0.2",
     "@nativescript/theme": "~3.0.2",
     "nativescript-ui-dataform": "^14.2.1",

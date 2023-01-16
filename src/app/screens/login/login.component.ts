@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Dialogs, AlertOptions, Page } from '@nativescript/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FirebaseService } from '../../services/firebase.service';
+import { IInstancia } from '../../interface/instancia';
 
 @Component({
     selector: 'Login',
@@ -8,14 +10,20 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
     styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-    items: Array<{ municipio: string; value: string }> = [
-        { municipio: 'Teste', value: '1' },
-        { municipio: 'Teste 2', value: '2' }
-    ];
+    items: IInstancia[] = [
+        {
+            id: 'https://homologacao.versasus.com.br',
+            ativo: 1,
+            cidade: 'Caratinga',
+            uf: 'MG',
+            cidade_id: 'caratinga',
+            text: 'Ambiente de Homologação'
+        }
+    ]
 
     public formLogin: FormGroup;
 
-    constructor(private page: Page) {
+    constructor(private page: Page, public firebaseService: FirebaseService) {
         this.page.actionBarHidden = true;
         this.page.backgroundImage = 'res://background_image';
         this.page.backgroundRepeat = 'no-repeat';
@@ -37,15 +45,15 @@ export class LoginComponent implements OnInit {
     }
 
     handleSignIn() {
-        if (!this.formLogin.valid) {
-            const alertOption: AlertOptions = {
-                title: 'Erro ao realizar login',
-                message: 'Preencha o formulário corretamente para continuar.',
-                okButtonText: 'Okay',
-                cancelable: false
-            }
+        // if (!this.formLogin.valid) {
+        //     const alertOption: AlertOptions = {
+        //         title: 'Erro ao realizar login',
+        //         message: 'Preencha o formulário corretamente para continuar.',
+        //         okButtonText: 'Okay',
+        //         cancelable: false
+        //     }
 
-            return Dialogs.alert(alertOption);
-        }
+        //     return Dialogs.alert(alertOption);
+        // }
     }
 }

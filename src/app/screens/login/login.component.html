@@ -2,13 +2,12 @@
     <Image src="res://logo_versasaude"></Image>
 
     <StackLayout [formGroup]="formLogin">
-        <PickerField #instancias hint="Selecione um município" [items]="items" [pickerTitle]="'Municípios'"
-            textField="municipio" valueField="value" formControlName="instancia" [ngClass]="invalidField('instancia')">
+        <PickerField hint="Selecione um município" [items]="firebaseService.instancias" [pickerTitle]="'Municípios'"
+            textField="text" valueField="id" formControlName="instancia" [ngClass]="invalidField('instancia')">
             <ng-template let-item="item">
                 <GridLayout columns="auto, *" rows="auto, *">
-                    <Label [text]="item.municipio" col="0" class="item-template-label red-label"
+                    <Label [text]="item.text" col="0" class="item-template-label red-label"
                         marginBottom="20"></Label>
-                    <!-- <Image src="res://logo_versatec" col="1" row="0" rowSpan="2" class="item-template-picture"></Image> -->
                 </GridLayout>
             </ng-template>
         </PickerField>
@@ -20,7 +19,7 @@
             [ngClass]="invalidField('senha')">
         </TextField>
 
-        <Button text="Entrar" (tap)="handleSignIn()" [isEnabled]="formLogin.valid"></Button>
+        <Button text="Entrar" (tap)="handleSignIn()" [isEnabled]="!formLogin.valid"></Button>
 
         <Image src="res://logo_versatec" width="100" marginTop="24"></Image>
     </StackLayout>
